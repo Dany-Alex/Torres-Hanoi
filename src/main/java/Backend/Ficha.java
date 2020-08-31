@@ -4,12 +4,11 @@ public class Ficha {
 
     private String Nombre;
     private int ID;
-    private Ficha arriba;
+    private Ficha arriba = null;
 
-    public Ficha(String Nombre, int ID, Ficha arriba) {
+    public Ficha(String Nombre, int ID) {
         this.Nombre = Nombre;
         this.ID = ID;
-        this.arriba = arriba;
     }
 
     public String getNombre() {
