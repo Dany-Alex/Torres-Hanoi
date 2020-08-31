@@ -76,4 +76,8 @@ public class Torre {
         return obtener;
     }
 
+    public String getNombreTorre() {
+        return NombreTorre;
+    }
+
 }
