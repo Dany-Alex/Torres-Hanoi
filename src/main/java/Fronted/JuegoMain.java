@@ -16,6 +16,7 @@ public class JuegoMain extends javax.swing.JFrame {
      */
     public JuegoMain() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
