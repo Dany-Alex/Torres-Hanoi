@@ -20,7 +20,7 @@ public class JuegoMain extends javax.swing.JFrame {
     private Torre torre3 = new Torre("Torre3");
     private int MovimientosMaximos;
     private int movimientos;
-    
+
     public JuegoMain() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -320,11 +320,13 @@ public class JuegoMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
+       
         movimientos = 0;
         String valor = (String) jComboBox1.getSelectedItem();
         MovimientosMaximos = (int) Math.pow(2, Integer.parseInt(valor));
         MovimientosMaximos--;
         JOptionPane.showMessageDialog(null, "El maximo numero de movimientos que debes realizar es de: " + MovimientosMaximos);
+        comenzarJuego(Integer.parseInt(valor)); 
         TextoMinimos.setText(String.valueOf(MovimientosMaximos));
         TextoMovimiento.setText(String.valueOf(movimientos));
     }//GEN-LAST:event_aceptarButtonActionPerformed
@@ -334,24 +336,23 @@ public class JuegoMain extends javax.swing.JFrame {
         TextoMovimiento.setText(String.valueOf(movimientos));
         ComprobarMovimietos();
     }//GEN-LAST:event_moverTorre1Torre2ButtonActionPerformed
-     
 
-     String nombre=null;
-    public void comenzarJuego(){
-   int numeroFichas=(int)jComboBox1.getSelectedIndex();
-   
-        for (int i = 1; i < numeroFichas; i++) {
-            nombre = "*";
-            torre1.Insertar(new Ficha(nombre,i));
-            nombre+="*";
+    
+
+    public void comenzarJuego(int valor) {
+        String nombre = "#";
+        for (int i = 1; i <= valor; i++) {
+            
+            torre1.Insertar(new Ficha(nombre, i));
+            nombre = nombre + "#";
         }
- 
-        System.out.println("Hola");        
-            for (Ficha ficha : torre1.getFichas()) {
- 
-             System.out.println("Nombre: "+ficha.getNombre()+"ID: "+ficha.getID());
+
+        System.out.println("Hola");
+        for (Ficha ficha : torre1.getFichas()) {
+
+            System.out.println("Nombre: " + ficha.getNombre() + "ID: " + ficha.getID());
         }
-        
+
     }
     private void moverTorre1Torre3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre3ButtonActionPerformed
         // TODO add your handling code here:
@@ -407,12 +408,13 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void HabilitarBotones(){
-        
+
+    public void HabilitarBotones() {
+
     }
-    public void ComprobarMovimietos(){
-        if (movimientos > MovimientosMaximos){
+
+    public void ComprobarMovimietos() {
+        if (movimientos > MovimientosMaximos) {
             JOptionPane.showMessageDialog(null, "Haz superado los movimientos minimos, haz perdido");
         }
     }
