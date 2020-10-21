@@ -136,7 +136,6 @@ public class JuegoMain extends javax.swing.JFrame {
         });
 
         jButton4.setText("Mover a Torre1");
-        jButton4.setActionCommand("Mover a Torre1");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -152,7 +151,6 @@ public class JuegoMain extends javax.swing.JFrame {
         });
 
         jButton6.setText("Mover a Torre1");
-        jButton6.setActionCommand("Mover a Torre1");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
