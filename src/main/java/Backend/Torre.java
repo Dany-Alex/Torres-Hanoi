@@ -40,5 +40,9 @@ public class Torre {
     public void setFichas(LinkedList<Ficha> fichas) {
         this.fichas = fichas;
     }
+    
+    public void Limpiar(){
+        fichas.clear();
+    }
 
 }

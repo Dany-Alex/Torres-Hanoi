@@ -326,7 +326,7 @@ public class JuegoMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
-
+        torre1.Limpiar();
         movimientos = 0;
         valor = (String) jComboBox1.getSelectedItem();
         MovimientosMaximos = (int) Math.pow(2, Integer.parseInt(valor));
