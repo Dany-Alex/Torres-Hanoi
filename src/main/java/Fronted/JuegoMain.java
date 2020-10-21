@@ -347,7 +347,6 @@ public class JuegoMain extends javax.swing.JFrame {
 
     public void comenzarJuego(int valor) {
         String nombre = "#";
-        System.out.println(valor);
         for (int i = 1; i <= valor; i++) {
             Ficha ficha = new Ficha(nombre, i);
             torre1.Insertar(ficha);
@@ -356,6 +355,9 @@ public class JuegoMain extends javax.swing.JFrame {
 
     }
     private void moverTorre1Torre3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre3ButtonActionPerformed
+        Ficha ficha = torre1.ObtenerFicha();
+        torre3.Insertar(ficha);
+        actualizarTablas(valor);
         movimientos++;
         TextoMovimiento.setText(String.valueOf(movimientos));
         ComprobarMovimietos();
@@ -444,16 +446,16 @@ public class JuegoMain extends javax.swing.JFrame {
             DeshabilitarBotones();
         }
     }
-    
-    
-    
 
     public void actualizarTablas(String valor) {
-
+        LinkedList<Ficha> fichas1 = torre1.getFichas();
+        LinkedList<Ficha> fichas2 = torre2.getFichas();
+        LinkedList<Ficha> fichas3 = torre3.getFichas();
         int num = Integer.parseInt(valor);
         DefaultTableModel ModeloTabla1, ModeloTabla2, ModeloTabla3;
 
         ModeloTabla1 = (DefaultTableModel) torre1Table.getModel();
+        ModeloTabla1.setRowCount(8 - num);
         ModeloTabla2 = (DefaultTableModel) torre2Table.getModel();
         ModeloTabla2.setRowCount(8 - num);
         ModeloTabla3 = (DefaultTableModel) torre3Table.getModel();
@@ -463,16 +465,28 @@ public class JuegoMain extends javax.swing.JFrame {
         render1.setHorizontalAlignment(SwingConstants.CENTER);
 
         torre1Table.getColumnModel().getColumn(0).setCellRenderer(render1);
-        LinkedList<Ficha> fichas1 = torre1.getFichas();
-        
-       
-        
-        ModeloTabla1.setRowCount(8 - num);
+        torre2Table.getColumnModel().getColumn(0).setCellRenderer(render1);
+        torre3Table.getColumnModel().getColumn(0).setCellRenderer(render1);
+
         Object[] primero = new Object[1];
         for (int i = 0; i < fichas1.size(); i++) {
             Ficha ficha = fichas1.get(i);
             primero[0] = ficha.getNombre();
             ModeloTabla1.addRow(primero);
+        }
+
+        Object[] segundo = new Object[1];
+        for (int i = 0; i < fichas2.size(); i++) {
+            Ficha ficha = fichas2.get(i);
+            segundo[0] = ficha.getNombre();
+            ModeloTabla2.addRow(segundo);
+        }
+
+        Object[] tercero = new Object[1];
+        for (int i = 0; i < fichas3.size(); i++) {
+            Ficha ficha = fichas3.get(i);
+            tercero[0] = ficha.getNombre();
+            ModeloTabla3.addRow(tercero);
         }
     }
 
