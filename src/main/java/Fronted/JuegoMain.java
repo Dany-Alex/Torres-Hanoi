@@ -329,7 +329,7 @@ public class JuegoMain extends javax.swing.JFrame {
         comenzarJuego(Integer.parseInt(valor)); 
         TextoMinimos.setText(String.valueOf(MovimientosMaximos));
         TextoMovimiento.setText(String.valueOf(movimientos));
-        comenzarJuego();
+        comenzarJuego(Integer.parseInt(valor));
     }//GEN-LAST:event_aceptarButtonActionPerformed
 
     private void moverTorre1Torre2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre2ButtonActionPerformed
