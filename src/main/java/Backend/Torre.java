@@ -26,6 +26,10 @@ public class Torre {
     public void Insertar(Ficha FichaNueva) {
         fichas.add(FichaNueva);
     }
+    
+    public void InsertarPrimero(Ficha FichaNueva) {
+        fichas.addFirst(FichaNueva);
+    }
 
     public Ficha ObtenerFicha() {
         Ficha ficha = fichas.getFirst();
@@ -43,6 +47,11 @@ public class Torre {
     
     public void Limpiar(){
         fichas.clear();
+    }
+    
+    public Ficha VerFicha() {
+        Ficha ficha = fichas.getFirst();
+        return ficha;
     }
 
 }

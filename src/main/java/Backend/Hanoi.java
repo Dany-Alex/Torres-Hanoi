@@ -48,6 +48,7 @@ public class Hanoi {
         String mensajeAux;
         mensajeAux = " Movimiento #" + contadorMovimentos + ": Torre " + torreInicio + " a Torre " + torreDestino + "\n";
         mensaje += mensajeAux;
+        
 
     }
 

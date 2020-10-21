@@ -6,6 +6,7 @@
 package Fronted;
 
 import Backend.Ficha;
+import Backend.Hanoi;
 import Backend.Torre;
 import java.util.LinkedList;
 import java.util.Vector;
@@ -30,6 +31,7 @@ public class JuegoMain extends javax.swing.JFrame {
     public JuegoMain() {
         initComponents();
         this.setLocationRelativeTo(null);
+        DeshabilitarBotones();
     }
 
     /**
@@ -66,6 +68,7 @@ public class JuegoMain extends javax.swing.JFrame {
         TextoMovimiento = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         TextoMinimos = new javax.swing.JTextField();
+        BotonResolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Torres de Hanoi");
@@ -201,6 +204,13 @@ public class JuegoMain extends javax.swing.JFrame {
 
         TextoMinimos.setEditable(false);
 
+        BotonResolver.setText("Resolver");
+        BotonResolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonResolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,13 +224,14 @@ public class JuegoMain extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TextoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TextoMinimos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(81, 81, 81)
+                .addComponent(BotonResolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(46, 46, 46))
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -228,52 +239,45 @@ public class JuegoMain extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
+                        .addGap(188, 188, 188)
                         .addComponent(aceptarButton)))
                 .addGap(169, 169, 169))
             .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(moverTorre1Torre3Button)
-                                    .addComponent(moverTorre1Torre2Button))
-                                .addGap(85, 85, 85)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(moverTorre2Torre3Button)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                        .addComponent(jLabel7))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(moverTorre2Torre1Button)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel6))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(moverTorre1Torre3Button)
+                    .addComponent(moverTorre1Torre2Button))
+                .addGap(85, 85, 85)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(moverTorre2Torre3Button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(jLabel7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(moverTorre2Torre1Button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(moverTorre3Torre1Button)
+                    .addComponent(moverTorre3Torre2Button))
+                .addGap(0, 59, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(moverTorre3Torre1Button)
-                            .addComponent(moverTorre3Torre2Button))
-                        .addGap(0, 59, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,35 +295,40 @@ public class JuegoMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(moverTorre2Torre1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(moverTorre3Torre1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(moverTorre1Torre2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(moverTorre1Torre3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(moverTorre2Torre3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(moverTorre3Torre2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7)))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextoMinimos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(moverTorre2Torre1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(moverTorre3Torre1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(moverTorre1Torre2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(moverTorre1Torre3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(moverTorre2Torre3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(moverTorre3Torre2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoMinimos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(BotonResolver, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -327,6 +336,8 @@ public class JuegoMain extends javax.swing.JFrame {
 
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
         torre1.Limpiar();
+        torre2.Limpiar();
+        torre3.Limpiar();
         movimientos = 0;
         valor = (String) jComboBox1.getSelectedItem();
         MovimientosMaximos = (int) Math.pow(2, Integer.parseInt(valor));
@@ -340,9 +351,8 @@ public class JuegoMain extends javax.swing.JFrame {
     }//GEN-LAST:event_aceptarButtonActionPerformed
 
     private void moverTorre1Torre2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre2ButtonActionPerformed
-        movimientos++;
-        TextoMovimiento.setText(String.valueOf(movimientos));
-        ComprobarMovimietos();
+        moverFicha(torre1, torre2);
+        
     }//GEN-LAST:event_moverTorre1Torre2ButtonActionPerformed
 
     public void comenzarJuego(int valor) {
@@ -355,37 +365,32 @@ public class JuegoMain extends javax.swing.JFrame {
 
     }
     private void moverTorre1Torre3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre3ButtonActionPerformed
-        Ficha ficha = torre1.ObtenerFicha();
-        torre3.Insertar(ficha);
-        actualizarTablas(valor);
-        movimientos++;
-        TextoMovimiento.setText(String.valueOf(movimientos));
-        ComprobarMovimietos();
+        moverFicha(torre1, torre3);
     }//GEN-LAST:event_moverTorre1Torre3ButtonActionPerformed
 
     private void moverTorre2Torre1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre2Torre1ButtonActionPerformed
-        movimientos++;
-        TextoMovimiento.setText(String.valueOf(movimientos));
-        ComprobarMovimietos();
+        moverFicha(torre2, torre1);
     }//GEN-LAST:event_moverTorre2Torre1ButtonActionPerformed
 
     private void moverTorre2Torre3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre2Torre3ButtonActionPerformed
-        movimientos++;
-        TextoMovimiento.setText(String.valueOf(movimientos));
-        ComprobarMovimietos();
+        moverFicha(torre2, torre3);
     }//GEN-LAST:event_moverTorre2Torre3ButtonActionPerformed
 
     private void moverTorre3Torre1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre3Torre1ButtonActionPerformed
-        movimientos++;
-        TextoMovimiento.setText(String.valueOf(movimientos));
-        ComprobarMovimietos();
+       moverFicha(torre3, torre1);
     }//GEN-LAST:event_moverTorre3Torre1ButtonActionPerformed
 
     private void moverTorre3Torre2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre3Torre2ButtonActionPerformed
-        movimientos++;
-        TextoMovimiento.setText(String.valueOf(movimientos));
-        ComprobarMovimietos();
+        moverFicha(torre3, torre2);
     }//GEN-LAST:event_moverTorre3Torre2ButtonActionPerformed
+
+    private void BotonResolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonResolverActionPerformed
+        int numero = Integer.parseInt(valor);
+        Hanoi hanoi = new Hanoi();
+        hanoi.resolver(numero, 1, 2, 3);
+        Solucion solucion = new Solucion(hanoi.getMensaje());
+        solucion.Ejecutar();
+    }//GEN-LAST:event_BotonResolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -422,6 +427,49 @@ public class JuegoMain extends javax.swing.JFrame {
         });
     }
 
+    public boolean Comprobacion(Ficha ficha1, Ficha ficha2) {
+        if (ficha1.getID() > ficha2.getID()) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public void moverFicha(Torre torreActual, Torre torreObjetivo) {
+        LinkedList<Ficha> listaTorre1 = torreActual.getFichas();
+        LinkedList<Ficha> listaTorre2 = torreObjetivo.getFichas();
+        if (listaTorre1.size() != 0) {
+            if (listaTorre2.size() != 0) {
+                Ficha ficha1 = torreActual.VerFicha();
+                Ficha ficha2 = torreObjetivo.VerFicha();
+                if (Comprobacion(ficha1, ficha2) == true) {
+                    Ficha ficha = torreActual.ObtenerFicha();
+                    torreObjetivo.InsertarPrimero(ficha);
+                    actualizarTablas(valor);
+                    movimientos++;
+                    TextoMovimiento.setText(String.valueOf(movimientos));
+                    ComprobarMovimietos();
+                }
+            } else {
+                Ficha ficha = torreActual.ObtenerFicha();
+                torreObjetivo.InsertarPrimero(ficha);
+                actualizarTablas(valor);
+                movimientos++;
+                TextoMovimiento.setText(String.valueOf(movimientos));
+                ComprobarMovimietos();
+            }
+        }
+        LinkedList<Ficha> lista3 = torre3.getFichas();
+        if (lista3.size() == Integer.parseInt(valor)){
+            Ganar();
+        }
+    }
+
+    public void Ganar(){
+        JOptionPane.showMessageDialog(null, "¡Felicidades, completaste el juego!");
+        DeshabilitarBotones();
+    }
     public void DeshabilitarBotones() {
         moverTorre1Torre2Button.setEnabled(false);
         moverTorre1Torre3Button.setEnabled(false);
@@ -429,6 +477,7 @@ public class JuegoMain extends javax.swing.JFrame {
         moverTorre2Torre3Button.setEnabled(false);
         moverTorre3Torre1Button.setEnabled(false);
         moverTorre3Torre2Button.setEnabled(false);
+        BotonResolver.setEnabled(false);
     }
 
     public void HabilitarBotones() {
@@ -438,6 +487,7 @@ public class JuegoMain extends javax.swing.JFrame {
         moverTorre2Torre3Button.setEnabled(true);
         moverTorre3Torre1Button.setEnabled(true);
         moverTorre3Torre2Button.setEnabled(true);
+        BotonResolver.setEnabled(true);
     }
 
     public void ComprobarMovimietos() {
@@ -491,6 +541,7 @@ public class JuegoMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonResolver;
     private javax.swing.JTextField TextoMinimos;
     private javax.swing.JTextField TextoMovimiento;
     private javax.swing.JButton aceptarButton;
