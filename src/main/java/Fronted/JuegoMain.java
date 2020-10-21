@@ -5,6 +5,7 @@
  */
 package Fronted;
 
+import Backend.Ficha;
 import Backend.Torre;
 import javax.swing.JOptionPane;
 
@@ -333,7 +334,25 @@ public class JuegoMain extends javax.swing.JFrame {
         TextoMovimiento.setText(String.valueOf(movimientos));
         ComprobarMovimietos();
     }//GEN-LAST:event_moverTorre1Torre2ButtonActionPerformed
+     
 
+     String nombre=null;
+    public void comenzarJuego(){
+   int numeroFichas=(int)jComboBox1.getSelectedIndex();
+   
+        for (int i = 1; i < numeroFichas; i++) {
+            nombre = "*";
+            torre1.Insertar(new Ficha(nombre,i));
+            nombre+="*";
+        }
+ 
+        System.out.println("Hola");        
+            for (Ficha ficha : torre1.getFichas()) {
+ 
+             System.out.println("Nombre: "+ficha.getNombre()+"ID: "+ficha.getID());
+        }
+        
+    }
     private void moverTorre1Torre3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre3ButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_moverTorre1Torre3ButtonActionPerformed
