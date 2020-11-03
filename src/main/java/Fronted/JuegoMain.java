@@ -8,6 +8,7 @@ package Fronted;
 import Backend.Ficha;
 import Backend.Hanoi;
 import Backend.Torre;
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -32,6 +33,7 @@ public class JuegoMain extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         DeshabilitarBotones();
+        //pintarBotones();
     }
 
     /**
@@ -82,11 +84,11 @@ public class JuegoMain extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Seleccione la cantidad de fichas que desea:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(203, 11, 302, 17);
+        jLabel1.setBounds(203, 11, 302, 18);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6", "7", "8" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(203, 46, 302, 22);
+        jComboBox1.setBounds(200, 40, 302, 23);
 
         aceptarButton.setText("Aceptar");
         aceptarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +97,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(aceptarButton);
-        aceptarButton.setBounds(246, 79, 77, 40);
+        aceptarButton.setBounds(260, 80, 160, 30);
 
         torre1Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,7 +171,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(moverTorre1Torre2Button);
-        moverTorre1Torre2Button.setBounds(76, 329, 121, 54);
+        moverTorre1Torre2Button.setBounds(76, 329, 118, 54);
 
         moverTorre1Torre3Button.setBackground(new java.awt.Color(0, 102, 0));
         moverTorre1Torre3Button.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,7 +182,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(moverTorre1Torre3Button);
-        moverTorre1Torre3Button.setBounds(76, 401, 121, 54);
+        moverTorre1Torre3Button.setBounds(76, 401, 118, 54);
 
         moverTorre2Torre1Button.setBackground(new java.awt.Color(0, 102, 153));
         moverTorre2Torre1Button.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,7 +193,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(moverTorre2Torre1Button);
-        moverTorre2Torre1Button.setBounds(294, 329, 121, 54);
+        moverTorre2Torre1Button.setBounds(294, 329, 118, 54);
 
         moverTorre2Torre3Button.setBackground(new java.awt.Color(0, 102, 0));
         moverTorre2Torre3Button.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,7 +205,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(moverTorre2Torre3Button);
-        moverTorre2Torre3Button.setBounds(294, 401, 121, 54);
+        moverTorre2Torre3Button.setBounds(294, 401, 118, 54);
 
         moverTorre3Torre1Button.setBackground(new java.awt.Color(0, 102, 153));
         moverTorre3Torre1Button.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,7 +216,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(moverTorre3Torre1Button);
-        moverTorre3Torre1Button.setBounds(494, 329, 121, 54);
+        moverTorre3Torre1Button.setBounds(494, 329, 118, 54);
 
         moverTorre3Torre2Button.setBackground(new java.awt.Color(204, 0, 0));
         moverTorre3Torre2Button.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,49 +227,49 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(moverTorre3Torre2Button);
-        moverTorre3Torre2Button.setBounds(494, 401, 121, 54);
+        moverTorre3Torre2Button.setBounds(494, 401, 118, 54);
 
         jLabel2.setText("■");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 348, 8, 16);
+        jLabel2.setBounds(50, 348, 8, 17);
 
         jLabel3.setText("■");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 420, 8, 16);
+        jLabel3.setBounds(50, 420, 8, 17);
 
         jLabel4.setText("■");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(282, 348, 8, 16);
+        jLabel4.setBounds(282, 348, 8, 17);
 
         jLabel5.setText("■");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(282, 420, 8, 16);
+        jLabel5.setBounds(282, 420, 8, 17);
 
         jLabel6.setText("■");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(455, 348, 8, 16);
+        jLabel6.setBounds(455, 348, 8, 17);
 
         jLabel7.setText("■");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(455, 420, 8, 16);
+        jLabel7.setBounds(455, 420, 8, 17);
 
         jTextField1.setEditable(false);
         jTextField1.setText("Movimientos realizados: ");
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(127, 535, 148, 22);
+        jTextField1.setBounds(60, 543, 160, 30);
 
         TextoMovimiento.setEditable(false);
         getContentPane().add(TextoMovimiento);
-        TextoMovimiento.setBounds(281, 535, 50, 22);
+        TextoMovimiento.setBounds(220, 543, 60, 30);
 
         jTextField2.setEditable(false);
         jTextField2.setText("Movimientos minimos: ");
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(127, 495, 148, 22);
+        jTextField2.setBounds(60, 503, 160, 30);
 
         TextoMinimos.setEditable(false);
         getContentPane().add(TextoMinimos);
-        TextoMinimos.setBounds(281, 495, 50, 22);
+        TextoMinimos.setBounds(220, 503, 60, 30);
 
         BotonResolver.setText("Resolver");
         BotonResolver.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +278,7 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BotonResolver);
-        BotonResolver.setBounds(412, 512, 216, 76);
+        BotonResolver.setBounds(360, 500, 216, 76);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
@@ -347,7 +349,7 @@ public class JuegoMain extends javax.swing.JFrame {
 
     private void moverTorre1Torre2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre1Torre2ButtonActionPerformed
         moverFicha(torre1, torre2);
-        
+
     }//GEN-LAST:event_moverTorre1Torre2ButtonActionPerformed
 
     public void comenzarJuego(int valor) {
@@ -372,7 +374,7 @@ public class JuegoMain extends javax.swing.JFrame {
     }//GEN-LAST:event_moverTorre2Torre3ButtonActionPerformed
 
     private void moverTorre3Torre1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre3Torre1ButtonActionPerformed
-       moverFicha(torre3, torre1);
+        moverFicha(torre3, torre1);
     }//GEN-LAST:event_moverTorre3Torre1ButtonActionPerformed
 
     private void moverTorre3Torre2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverTorre3Torre2ButtonActionPerformed
@@ -456,15 +458,20 @@ public class JuegoMain extends javax.swing.JFrame {
             }
         }
         LinkedList<Ficha> lista3 = torre3.getFichas();
-        if (lista3.size() == Integer.parseInt(valor)){
+        if (lista3.size() == Integer.parseInt(valor)) {
             Ganar();
         }
     }
 
-    public void Ganar(){
-        JOptionPane.showMessageDialog(null, "¡Felicidades, completaste el juego!");
+    public void Ganar() {
+
         DeshabilitarBotones();
+        JOptionPane.showMessageDialog(null, "¡Felicidades, completaste el juego!");
+        torre1.Limpiar();
+        torre2.Limpiar();
+        torre3.Limpiar();
     }
+
     public void DeshabilitarBotones() {
         moverTorre1Torre2Button.setEnabled(false);
         moverTorre1Torre3Button.setEnabled(false);
@@ -483,6 +490,16 @@ public class JuegoMain extends javax.swing.JFrame {
         moverTorre3Torre1Button.setEnabled(true);
         moverTorre3Torre2Button.setEnabled(true);
         BotonResolver.setEnabled(true);
+    }
+
+    public void pintarBotones() {
+        moverTorre1Torre2Button.setBackground(Color.red);
+        moverTorre1Torre3Button.setBackground(Color.red);
+        moverTorre2Torre1Button.setBackground(Color.red);
+        moverTorre2Torre3Button.setBackground(Color.red);
+        moverTorre3Torre1Button.setBackground(Color.red);
+        moverTorre3Torre2Button.setBackground(Color.red);
+
     }
 
     public void ComprobarMovimietos() {
